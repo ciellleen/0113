@@ -1,0 +1,121 @@
+# 1. int형 변수를 선언하여 사용자에게 입력 받은 후 해당 값을 2배로 바꿔주는 함수(반환 형태 : void)를 사용하여 입력 받은 수의 2배를 출력하시오
+
+```c
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h> 
+
+void ChangeDouble(int* p)
+{
+    *p *= 2;
+}
+
+int main()
+{
+    int num;
+    printf("숫자를 입력하시오 : ");
+    scanf("%d", &num);
+
+    ChangeDouble(&num);
+    printf("입력된 수의 2배는 : %d\n", num);
+
+    return 0;
+}
+
+```
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/43f4c680-a7ab-4f2d-b233-d37ec40472ce/a41cf880-2a24-490f-9b34-80c091c03627/image.png)
+
+---
+
+# 2. 숫자를 입력 받아 해당 숫자를 가리키는 포인터를 만들어 해당 숫자의 값과 포인터의 값을 출력하고, 두 주소도 출력하여 같은 값이 나오는지 확인해보세요.
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h> 
+
+int main() 
+{ 
+    int num; 
+    int* numP; // 포인터 선언
+
+    printf("숫자를 입력하시오 : "); 
+    scanf("%d", &num); 
+
+    numP = &num; // num의 주소를 numP에 저장
+
+    printf("숫자의 값: %d\n", num); 
+    printf("포인터의 값: %d\n", *numP); 
+    printf("숫자의 주소: %p\n", &num); 
+    printf("포인터의 주소: %p\n", numP); 
+
+    return 0;
+}
+
+```
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/43f4c680-a7ab-4f2d-b233-d37ec40472ce/8a02d833-9ee5-45f1-99ee-f81934561aa6/image.png)
+
+---
+
+# 3. 숫자를 입력 받아 해당 숫자를 제곱으로 바꿔주는 함수를 만드세요. (반환 형태가 void이고, 포인터 사용)
+
+```c
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h> 
+
+void ChangeSquare(int* p) 
+{
+    *p = (*p) * (*p); // 포인터가 가리키는 값을 제곱으로 변경
+}
+
+int main() 
+{ 
+    int num; 
+    printf("숫자를 입력하시오 : "); 
+    scanf("%d", &num);
+
+    ChangeSquare(&num); // num의 주소를 전달
+    printf("숫자의 제곱 값은 : %d\n", num); 
+
+    return 0;
+}
+
+```
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/43f4c680-a7ab-4f2d-b233-d37ec40472ce/9a73d835-9e69-4231-b6b1-4b884294c396/image.png)
+
+---
+
+# 4. 숫자1, 숫자2 두 개의 숫자를 입력 받아 포인터 두 개의 인자를 받는 함수로 두 숫자를 바꾼 후 출력해주는 프로그램을 만드세요.(숫자1을 출력하면 숫자2의 숫자가 나오고, 숫자2를 출력하면 숫자1이 나오게 하세요. 함수에서 두 값을 서로 바꿈)
+
+```c
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h> 
+
+void ChangeNumbers(int* p1, int* p2) 
+{
+    int temp = *p1; // p1이 가리키는 값을 임시 저장
+    *p1 = *p2;      // p1에 p2의 값을 저장
+    *p2 = temp;     // p2에 임시 저장된 값을 저장
+}
+
+int main(void) 
+{ 
+    int num1, num2; 
+
+    printf("숫자1 : "); 
+    scanf("%d", &num1); 
+    printf("숫자2 : "); 
+    scanf("%d", &num2);
+
+    ChangeNumbers(&num1, &num2); // 두 숫자의 주소를 전달
+
+    printf("바뀐 숫자1 : %d\n", num1); 
+    printf("바뀐 숫자2 : %d\n", num2);
+
+    return 0;
+}
+
+```
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/43f4c680-a7ab-4f2d-b233-d37ec40472ce/a96a11a4-776c-4f06-a92d-7eecc700e38f/image.png)
